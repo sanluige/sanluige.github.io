@@ -26,11 +26,11 @@ In general, the model:
 - is contained within a GUI;
 - is initialised with data from the web.
 
-## Understanding the program
+## Program components
 
-The program requires to scripts to run: 
-    - [ABM_model.py](https://pages.github.com/), which is the main script from which the program is executed, and; 
-    - [agentframework](https://pages.github.com/), which is the definition of the Agent class.
+The program requires to scripts to run:
+- [ABM_model.py](https://pages.github.com/), which is the main script from which the program is executed, and;
+- [agentframework](https://pages.github.com/), which is the definition of the Agent class.
 
 Some basic Git commands are:
 
