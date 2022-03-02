@@ -6,15 +6,17 @@ title: Assignment 1: Agent Based Model
 Text that is not a quote
 
 > Text that is a quote
+
 ## The second *largest* heading
 Some basic Git commands are:
+
 ```
 git status
 git add
 git commit
 ```
-###### **The _smallest_ heading**
 
+###### **The _smallest_ heading**
 Text that is not a quote
 
 > Text that is a quote
