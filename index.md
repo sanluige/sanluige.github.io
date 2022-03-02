@@ -13,7 +13,7 @@ git status
 git add
 git commit
 ```
-###### **The _smallest_ heading*
+###### **The _smallest_ heading**
 
 Text that is not a quote
 
