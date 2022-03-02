@@ -2,13 +2,12 @@
 title: Assignment 1: Agent Based Model
 ---
 
-# **Assignment 1:** Agent Based Model
+# **Assignment 1:** Basic Agent Based Model
 
 **Module:** GEOG5990M Programming for Geographical Information Analysis: Core Skills
 
 **Student ID:** 201534083
 
-> Text that is a quote1
 
 ## Model summary
 
@@ -40,9 +39,11 @@ git add
 git commit
 ```
 
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
 ###### **The _smallest_ heading**
 Text that is not a quote
 
 > Text that is a quote
 
-This site was built using [TEST Pages](https://pages.github.com/).
+
