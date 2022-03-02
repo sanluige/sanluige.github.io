@@ -28,8 +28,8 @@ In general, the model:
 ## Program components
 
 The program requires to scripts to run:
-- [ABM_model.py](https://pages.github.com/), which is the main script from which the program is executed, and;
-- [agentframework](https://pages.github.com/), which is the definition of the Agent class.
+- [ABM_model.py](https://sanluige.github.io/ABM_model.py), which is the main script from which the program is executed, and;
+- [agentframework.py](https://sanluige.github.io/agentframework.py), which is the definition of the Agent class.
 
 Some basic Git commands are:
 
