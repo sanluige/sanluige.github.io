@@ -33,16 +33,23 @@ The program requires to scripts to run:
 
 ## Navigating the model menu
 
+
 The menu allows the user to:
+
 **Run model**: Run the model with default parameters.
+
 **Change model parameters**: Allows the user to change the following parameters on the console:
+
 - Number of grazers
 - Number of predators
 - Number of iterations of the model
 - Grazers sharing neighbourhood radio
 - Predator hunting neighbourhood radio
+
 **Print agent information**: Prints the information of agents - grazers and predators - in the console.
+
 **Print environment file**: Updates the environment state in an exixting CSV file. User should download it to their working directory (or change the directory in the code" for this to work. Alternatively, the user can create a blank CSV file called "environmentout.csv" in point the code to it locally.
+
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://https://sanluige.github.io/Model_menu.png)
