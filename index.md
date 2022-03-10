@@ -31,6 +31,12 @@ The program requires to scripts to run:
 - [agenbasedmodel.py](https://sanluige.github.io/agentbasedmodel.py), which is the main script from which the program is executed, and;
 - [agentframework.py](https://sanluige.github.io/agentframework.py), which is the definition of the Agent class and subclasses Grazer and Predator.
 
+Additionally, it requires two files:
+- [in.txt](https://sanluige.github.io/in.txt), which contains the environment information.
+- [environmentout.csv](https://sanluige.github.io/environmentout.csv), which is the file used to write the environment data out of the model when requested by the user.
+
+Please download the files into the same local directory to run.
+
 ## Navigating the model menu
 
 
@@ -48,7 +54,7 @@ The menu allows the user to:
 
 **Print agent information**: Prints the information of agents - grazers and predators - in the console.
 
-**Print environment file**: Updates the environment state in an exixting CSV file. User should download it to their working directory (or change the directory in the code" for this to work. Alternatively, the user can create a blank CSV file called "environmentout.csv" in point the code to it locally.
+**Print environment file**: Updates the environment state in an existing CSV file (provided above).
 
 **Quit model**: Quits the execution of the model and closes model window.
 
