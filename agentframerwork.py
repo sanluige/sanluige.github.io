@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Feb  1 11:45:36 2022
+Created on Tue Mar  8 12:19:58 2022
 
 @author: luisgerardosanchezsoto
 """
 import random
 
+#definition of superclass "Agent"
 class Agent():
     def __init__(self, environment, agents, x = None, y = None):
         if (x == None):
@@ -20,8 +21,9 @@ class Agent():
         self.environment = environment
         self.agents = agents
         self.store = 0
+        self.energy = 0
 
-#protect x
+    #protect x
     def getx(self):
         return self._x
     def setx(self, value):
@@ -29,7 +31,8 @@ class Agent():
     def delx(self):
         del self._x
     x = property(getx, setx, delx, "I'm the 'x' property.")
-#protect y
+
+    #protect y
     def gety(self):
         return self._y
     def sety(self, value):
@@ -63,6 +66,12 @@ class Agent():
         self._x = self.move_coordinate(self._x)
         self._y = self.move_coordinate(self._y)
     
+    def distance_between(self, otheragent):
+        return (((self._x - otheragent.x)**2) + ((self._y - otheragent.y)**2))**0.5
+    
+#definition of subclass "Grazer"
+#Inherits from Agent
+class Grazer(Agent):
     def eat(self): # can you make it eat what is left?
         """
         Evaluates value of coordinate point in environment and substracts 10 if available, or substracts to reach zero if value in environment is less than 10
@@ -80,8 +89,8 @@ class Agent():
             self.environment[self._y][self._x] = 0
             self.store += self.environment[self._y][self._x]
         if self.store > 150:
-            self.environment[self._y][self._x] += self.store
-            self.store = 0
+            self.environment[self._y][self._x] += self.store / 2
+            self.store = self.store / 2
  
     def move_coordinate(self, xory):
         """
@@ -126,7 +135,70 @@ class Agent():
                     self.store = average
                     otheragent.store = average
                     print("sharing " + str(distance) + " " + str(average))
-                    
-   
-    def distance_between(self, otheragent):
-        return (((self._x - otheragent.x)**2) + ((self._y - otheragent.y)**2))**0.5
+
+#definition of subclass "Predator"
+#Inherits from "Agent"
+class Predator(Agent): 
+    
+    def __str__(self):
+        """
+        Overwrites Predator print() function to show values in x, y and store variables
+
+        Returns
+        -------
+        TYPE
+            Displays values in x, y and store variables.
+
+        """
+        return "x = " + str(self._x) + ", y = " + str(self._y) + ", store = " + str(self.store) + ", energy level = " + str(self.energy)
+    
+    def eat(self, neighbourhood):
+        """
+        Method by which Predator attempts to eat agents within neighbourhood. 
+        Evaluates distance between self and agent and attempts to eat with a 20% probability of success.
+        Limited to eat one grazer per iteration.
+
+        Parameters
+        ----------
+        neighbourhood : Integer
+            Parameter indicating radius of neighbourhood
+
+        Returns
+        -------
+        None.
+
+        """
+        
+        ate_once = False
+        
+        for agent in self.agents:
+            distance = self.distance_between(agent)
+            if distance <= neighbourhood and  ate_once == False:
+                if random.randint(0, 1) < 0.2:
+                    self.store += 1
+                    self.energy += 10 
+                    print("Grazer " + str(agent) + " at distance " + str(distance) + " units of distance from predator has been eaten")
+                    self.agents.remove(agent)
+                    ate_once = True
+
+    def move_coordinate(self, xory):
+        """
+        Randomly increases or decreases parameter xory by 1 in a torus plane of dimensions defined by lenght of agent.environment. 
+        Disproportionate movement forward (decreasing x or y 90% of the time) emulates predator circuit in the plane.
+
+        Parameters
+        ----------
+        xor : number
+            Parameter indicating an x or y value of a coordinate.
+
+        Returns
+        -------
+        xor : number
+            Parameter after processing.
+
+        """
+        if random.random() < 0.1:
+            xory = (xory + 1) % len(self.environment)
+        else:
+            xory = (xory - 3) % len(self.environment)
+        return xory
