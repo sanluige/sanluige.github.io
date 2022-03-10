@@ -52,7 +52,7 @@ The menu allows the user to:
 
 **Quit model**: Quits the execution of the model and closes model window.
 
-![This is an image](https://https://sanluige.github.io/Model_menu.png)
+![This is an image](https://sanluige.github.io/Model_menu.png)
 
 ## Additional notes
 
