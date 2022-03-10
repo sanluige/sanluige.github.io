@@ -26,7 +26,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot
 import matplotlib.animation 
 import csv
-import agentframerwork
+import agentframework
 import tkinter
 import requests
 import bs4
@@ -129,11 +129,11 @@ xlenght = len(environment[0])
 for i in range(num_of_grazers):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
-    grazers.append(agentframerwork.Grazer(environment, grazers, y, x))
+    grazers.append(agentframework.Grazer(environment, grazers, y, x))
 
 #Create predators and append to agents list
 for i in range(num_of_predators):
-    predators.append(agentframerwork.Predator(environment, grazers))
+    predators.append(agentframework.Predator(environment, grazers))
 
 #update agent actions by frame_number
 carry_on = True	
