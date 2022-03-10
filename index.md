@@ -28,7 +28,7 @@ In general, the model:
 ## Program components
 
 The program requires to scripts to run:
-- [agenbasedmodel.py](https://sanluige.github.io/agentbasedmodel.py), which is the main script from which the program is executed, and;
+- [agentbasedmodel.py](https://sanluige.github.io/agentbasedmodel.py), which is the main script from which the program is executed, and;
 - [agentframework.py](https://sanluige.github.io/agentframework.py), which is the definition of the Agent class and subclasses Grazer and Predator.
 
 Additionally, it requires two files:
