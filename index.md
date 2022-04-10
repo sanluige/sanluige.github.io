@@ -26,6 +26,11 @@ In general, the model:
 - is initialised with data from the web.
 
 ## Program components
+Running the model:
+Execute the agentbasedmodel script to run the model. A GUI window will appear with several options in the Model menu (described delow). Running the model will display a visual representation of the environment with agents (sheep and wolves) intitialised in it, and an animation of their moving, grazing and hunting behaviours will start. Sheep will move randonmly within the 300x300 environment and eat, share and sick up a proportion of their eaten resources, based on the amount of resources eaten and position relative to other sheep. Wolves will move in a partially random circuit around the map and hunt for sheep when within hunting radius. Eaten sheep will dissapear from the environment and wolves will store hunting information. The length of time for the program to run will vary slightly depending on the initial randomised positions of the agents, but is mostly dependent on the number of iterations defined by the user (default number of iterations is 150). The model run will stop when:
+- Simulation completes the number of iterations,
+- All sheep are hunted,
+- Maximum grazing is achieved.
 
 The program requires to scripts to run:
 - [agentbasedmodel.py](https://sanluige.github.io/agentbasedmodel.py), which is the main script from which the program is executed, and;
