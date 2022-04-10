@@ -60,6 +60,9 @@ The menu allows the user to:
 
 ![This is an image](https://sanluige.github.io/Model_menu.png)
 
+## License
+This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [https://www.gnu.org/licenses/lgpl-3.0.md] (LICENSE)
+
 ## Additional notes
 
 - The code was developed to run on MacOS, so users running the program in other operating systems should alter the code (particularly matplotlib commands) to run correctly in their computer.
