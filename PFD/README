@@ -62,7 +62,7 @@ The menu allows the user to:
 
 The testing of the functionality of relevant methods and functions has been done using Doctests. 
 The tests validate that each method/function performs as expected, changes and updates variables as expected and returns the appropriate values and types of values.
-Please run the doctests on the script agentframework.py for testing:
+Please run the doctests on the script drunksframework.py for testing:
 - Navigate to the directory where the script is located;
 - run the command "python -m doctest -v drunksframework.py" to initiate Doctests.
 
