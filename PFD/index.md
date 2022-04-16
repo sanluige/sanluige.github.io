@@ -62,13 +62,13 @@ The menu allows the user to:
 
 The testing of the functionality of relevant methods and functions has been done using Doctests. 
 The tests validate that each method/function performs as expected, changes and updates variables as expected and returns the appropriate values and types of values.
-Please run the doctests on the script agentframework.py for testing:
+Please run the doctests on the script drunksframework.py for testing:
 - Navigate to the directory where the script is located;
 - run the command "python -m doctest -v drunksframework.py" to initiate Doctests.
 
 ## License
 
-This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [LICENSE].(https://www.gnu.org/licenses/lgpl-3.0.md)
+This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [LICENSE](https://www.gnu.org/licenses/lgpl-3.0.md).
 
 ## Additional notes
 
