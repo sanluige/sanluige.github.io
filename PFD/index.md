@@ -68,7 +68,7 @@ Please run the doctests on the script agentframework.py for testing:
 
 ## License
 
-This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [LICENSE](https://www.gnu.org/licenses/lgpl-3.0.md)
+This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [LICENSE].(https://www.gnu.org/licenses/lgpl-3.0.md)
 
 ## Additional notes
 
