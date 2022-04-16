@@ -20,7 +20,7 @@ Basic ABM Model:
     - is initialised with data from the web.
 
 """
-#Imports
+# imports
 import matplotlib
 matplotlib.use('TkAgg') 
 import matplotlib.pyplot
@@ -32,14 +32,14 @@ import requests
 import bs4
 import sys
 
-#Define and set variables with default values
+# define and set variables with default values
 num_of_grazers = 10
 num_of_predators = 3
 num_of_iterations = 150
 neighbourhood = 5
 pred_neighbourhood = 10
 
-#Allow user to change parameters, limiting user inputs to Integers
+# allow user to change parameters, limiting user inputs to Integers
 def set_parameters():
     global num_of_grazers
     global num_of_predators
@@ -52,28 +52,28 @@ def set_parameters():
             num_of_grazers = int(input("Enter number of grazers in model: "))
         except ValueError:
             print("Cannot parse this input. Please enter a integer.")
-            #Incorrect input. Return to the start of the loop
+            # incorrect input. Return to the start of the loop
             continue
         else:
-            #input was successfully parsed. Exit while loop.
+            # input was successfully parsed. Exit while loop.
             break
 
     while True:
         try:
             num_of_predators = int(input("Enter number of predators in model: "))
         except ValueError:
-            print("Cannot parse this input. Please enter a integer.")
-            #Incorrect input. Return to the start of the loop
+            print("Cannot parse this input. Please enter an integer.")
+            # incorrect input. Return to the start of the loop
             continue
         else:
-            #input was successfully parsed. Exit while loop.
+            # input was successfully parsed. Exit while loop.
             break
 
     while True:
         try:
             num_of_iterations = int(input("Enter number of iterations: "))
         except ValueError:
-            print("Cannot parse this input. Please enter a integer.")
+            print("Cannot parse this input. Please enter an integer.")
             #Incorrect input. Return to the start of the loop
             continue
         else:
@@ -84,36 +84,36 @@ def set_parameters():
         try:
             neighbourhood = int(input("Enter grazer neighbourhood radius: "))
         except ValueError:
-            print("Cannot parse this input. Please enter a integer.")
-            #Incorrect input. Return to the start of the loop
+            print("Cannot parse this input. Please enter an integer.")
+            # incorrect input. Return to the start of the loop
             continue
         else:
-            #input was successfully parsed. Exit while loop.
+            # input was successfully parsed. Exit while loop.
             break
 
     while True:
         try:
             pred_neighbourhood = int(input("Enter predator neighbourhood radius: "))
         except ValueError:
-            print("Cannot parse this input. Please enter a integer.")
-            #Incorrect input. Return to the start of the loop
+            print("Cannot parse this input. Please enter an integer.")
+            # incorrect input. Return to the start of the loop
             continue
         else:
-            #input was successfully parsed. Exit while loop.
+            # input was successfully parsed. Exit while loop.
             break
         
 grazers = []
 predators = []
 environment = []
 
-#read and store coordinates from website
+# read and store coordinates from website
 r = requests.get('http://www.geog.leeds.ac.uk/courses/computing/practicals/python/agent-framework/part9/data.html')
 content = r.text
 soup = bs4.BeautifulSoup(content, 'html.parser')
 td_ys = soup.find_all(attrs={"class" : "y"})
 td_xs = soup.find_all(attrs={"class" : "x"})
 
-#Read in.txt and create environmentas as list of lists
+# read in.txt and create environmentas as list of lists
 f = open('in.txt', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 for row in reader: 
@@ -125,17 +125,17 @@ f.close()
 ylenght = len(environment)
 xlenght = len(environment[0])
 
-#Create grazers and append to agents list
+# create grazers and append to agents list
 for i in range(num_of_grazers):
     y = int(td_ys[i].text)
     x = int(td_xs[i].text)
     grazers.append(agentframework.Grazer(environment, grazers, y, x))
 
-#Create predators and append to agents list
+# create predators and append to agents list
 for i in range(num_of_predators):
     predators.append(agentframework.Predator(environment, grazers))
 
-#update agent actions by frame_number
+# update agent actions by frame_number
 carry_on = True	
 def update(frame_number):
     
@@ -161,7 +161,7 @@ def update(frame_number):
     
     num_of_grazers = len(grazers)
     
-    #Stopping condition: Limit overall grazing of environment
+    # stopping condition: Limit overall grazing of environment
     s = 0
     
     for i in range(num_of_grazers):
@@ -179,20 +179,20 @@ def update(frame_number):
     matplotlib.pyplot.xlim(0, xlenght)
     matplotlib.pyplot.imshow(environment)
 
-#Stopping process logic
+# stopping process logic
 def gen_function(b = [0]):
     a = 0
-    global carry_on #Not actually needed as we're not assigning, but clearer
+    global carry_on # not actually needed as we're not assigning, but clearer
     while (a < num_of_iterations) & (carry_on) :
-        yield a	# Returns control and waits next call.
+        yield a	# returns control and waits next call.
         a = a + 1
 
-#Run method to be called by animation
+# run method to be called by animation
 def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
     canvas.draw()
 
-#print agent information in console
+# print agent information in console
 def print_info():
     print("\n Grazer information:")
     for i in range(num_of_grazers):
@@ -201,7 +201,7 @@ def print_info():
     for i in range(num_of_predators):
         print(predators[i])
 
-#write environment in existing csv file        
+# write environment in existing csv file        
 def file_env():
     f2 = open('environmentout.csv', 'w', newline='')
     writer = csv.writer(f2)
@@ -209,7 +209,7 @@ def file_env():
         writer.writerow(rowlist) # List of values.
     f2.close() 
 
-#quit model execution
+# quit model execution
 def quit_model():
     print("Thank you for using this model")
     root.destroy()
@@ -219,7 +219,7 @@ def quit_model():
 fig = matplotlib.pyplot.figure(figsize=(7, 7))
 ax = fig.add_axes([0, 0, 1, 1])
 
-#Set up model window  
+# set up model window  
 root = tkinter.Tk()
 root.wm_title("Model")
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
@@ -235,7 +235,7 @@ model_menu.add_command(label="Print agent information", command=print_info)
 model_menu.add_command(label="Print environment file", command=file_env)
 model_menu.add_command(label="Quit model", command=quit_model)
 
-tkinter.mainloop() # Wait for interactions.  
+tkinter.mainloop() # wait for interactions.  
 
 
 
