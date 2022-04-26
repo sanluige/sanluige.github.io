@@ -31,11 +31,6 @@ Execute the pfdmodel.py script to run the model. A GUI window will appear with s
 
 Running the model run the main mechanincs of the program and display a visual representation of the town and show the routes that each drunk took to reach their house. Once ran, the user can use the model menu to create a step density map (a map marking the number of steps at each coordinate position in the map) from the simulation, display it on the model window and export it as a CSV file.
 
-The length of time for the program to run will vary slightly depending on the initial randomised positions of the agents, but is mostly dependent on the number of iterations defined by the user (default number of iterations is 150). The model run will stop when:
-- Simulation completes the number of iterations,
-- All sheep are hunted,
-- Maximum grazing is achieved.
-
 The program requires to scripts to run:
 - [pfdmodel.py](https://sanluige.github.io/PFD/pfdmodel.py), which is the main script from which the program is executed, and;
 - [drunksframework.py](https://sanluige.github.io/PFD/drunksframework.py), which is the definition of the Drunk class and its functionality.
@@ -51,11 +46,8 @@ Please download the files into the same local directory to run.
 The menu allows the user to:
 
 **Print drunk information**: Prints the information of drunks (position, housenumber, status and drunk level) in the console.
-
-**Run simulation**: Runs the program and displays the town map with the 25 routes on the GUI window and figure window (for closer inspection).
-
-**Draw step density map and export CSV file**: creates density map, displays map on the GUI and figure window, and overwrites file step_dmap.csv with the data from that simulation.
-
+**Run simulation**: Runs the program and displays the town map with the 25 routes on the GUI window and figure window (for closer inspection). This also creates the density map without displaying it on program window.
+**Draw step density map and export CSV file**: displays density map on the GUI and figure window, and overwrites file step_dmap.csv with the data from that simulation.
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://sanluige.github.io/PFD/PFDMenu.png)

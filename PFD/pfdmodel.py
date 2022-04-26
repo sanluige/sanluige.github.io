@@ -61,12 +61,21 @@ def run():
     matplotlib.pyplot.xlim(0, xlenght)
     matplotlib.pyplot.imshow(town)
     
+    # initialise dmap as a 300x300 grid of 0.0's
+    global dmap
+    for i in range(ylenght):
+        row = []
+        for j in range(xlenght):
+            row.append(0.0)
+        dmap.append(row)
+    
     # each step and evaluate if position is in home (search list of tuples)
     n = 0
     for i in range(len(drunks)):
         while drunks[i].status != 2 and n < 300:
             drunks[i].move()
             drunks[i].evalposition()
+            dmap[drunks[i].getx()][drunks[i].gety()] += 1 
             n = i+1
         print("Drunk " + str(n) + " arrived home.")
         y, x = np.array(drunks[i].steps).T # transpose coordinate pairs to plot
@@ -78,29 +87,29 @@ def run():
 # draw step density map    
 def draw_density():
     
-    print("Draw step density process started") # print to monitor that process started
-    
-    # create density map as list of lists
-    global dmap
-    for i in range(ylenght):
-        row = []
-        for j in range(xlenght):
-            row.append(0.0)
-        dmap.append(row)
-    
-    # list of steps of drunks
-    allsteps = []
-    for i in range(len(drunks)):
-        allsteps.append(drunks[i].steps)
-    
-    # draw steps in density map
-    for d in range(len(drunks)):
-        for i in range(ylenght):
-            for j in range(xlenght):
-                if [i, j] in allsteps[d]:
-                    dmap[i][j] +=1
-    
-    print("Draw step density process completed") # print to monitor that process ended
+#    print("Draw step density process started") # print to monitor that process started
+#
+#    # create density map as list of lists
+#    global dmap
+#    for i in range(ylenght):
+#        row = []
+#        for j in range(xlenght):
+#            row.append(0.0)
+#        dmap.append(row)
+#    
+#    # list of steps of drunks
+#    allsteps = []
+#    for i in range(len(drunks)):
+#        allsteps.append(drunks[i].steps)
+#    
+#    # draw steps in density map
+#    for d in range(len(drunks)):
+#        for i in range(ylenght):
+#            for j in range(xlenght):
+#                if [i, j] in allsteps[d]:
+#                    dmap[i][j] +=1
+#
+#    print("Draw step density process completed") # print to monitor that process ended
     
     # show density map in model window figure
     fig.clear()
