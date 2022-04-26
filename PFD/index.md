@@ -46,15 +46,16 @@ Additionally, it requires two files:
 
 Please download the files into the same local directory to run.
 
-**Please also refer the [README](https://sanluige.github.io/ABM/README) and [LICENSE](https://sanluige.github.io/ABM/LICENCE) files, which include the information in this page.**
-
 ## Navigating the model menu
 
 The menu allows the user to:
 
 **Print drunk information**: Prints the information of drunks (position, housenumber, status and drunk level) in the console.
+
 **Run simulation**: Runs the program and displays the town map with the 25 routes on the GUI window and figure window (for closer inspection).
+
 **Draw step density map and export CSV file**: creates density map, displays map on the GUI and figure window, and overwrites file step_dmap.csv with the data from that simulation.
+
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://sanluige.github.io/PFD/PFDMenu.png)
@@ -72,7 +73,7 @@ Some code used for testing and previous steps was commented out as additional pr
 
 I had a great time developing the code for this assignment, building on the foundations laid by the practical work during the module and assignment 1. Below are some important notes on my experience:
 
-- Initially I intended to do an animation of the process of drunks finding their way home, but encountered problems implementing it and also reconsidered the relevance of animating the process, given that there's no interaction between drunks and therefore the animation would be a little boring.
+- Initially I intended to do an animation of the process of drunks finding their way home, but encountered problems implementing it and also reconsidered the relevance of animating the process, given that there's no interaction between drunks and therefore the animation would be a little boring. The coded for that is commented out at the bottom section of the script pfdmodel.py (section with title "Unsuccesful implementations").
 
 - My initial approach was to allow drunks to move in a completely random manner, but I quickly realised that this often resulted in excessive run times and the program crashing as drunks would move around the map virtually indefinitely, with no sense of where their house was. I ended up defining four levels of "drunkness" (1 through 4) that defined the randomness of their movement. Essentially, drunks moved towards their house location depending on if a random number was above or below a limit defined by the drunkness level:
 ```
@@ -98,13 +99,13 @@ def move_ycoordinate(self, y):
     return y
 
 ```
-- After testing, 1 to 4 allow for diversity in randomness of movement, but not too much that would allow the drunk to wander off the general direction to their house.
+After testing, 1 to 4 allow for diversity in randomness of movement, but not too much that would allow the drunk to wander off the general direction to their house.
 
-- Additionally, I developed a slightly inefficient way of drawing the density map. As drunks move, their steps are saved as coordinate pairs in a list. When drawing the map, a 300x300 list of lists if filled with zeros and then for each point in the map, the drunks' step lists are searched to find that point and add 1 to that point for each appearance. This works well enough, although it can take about 10-15 seconds to process. A clear enhancement for a next iteration of this iteration of the model is to embed the density map drawing process in the simulation of the drunk's journey itself. That wouldn't require searching the drunks' step list 90,000 times (map size 300x300).
+- Additionally, I initially developed a slightly inefficient way of drawing the density map. As drunks move, their steps are saved as coordinate pairs in a list. When drawing the map, a 300x300 list of lists if filled with zeros and then for each point in the map, the drunks' step lists are searched to find that point and add 1 to that point for each appearance. This worked well enough, although it can take about 10-15 seconds to process. The implemented improvement to this inefficiency issue was to embed the density map drawing process in the simulation of the drunk's journey itself. That doesn't require searching the drunks' step list 90,000 times (map size 300x300), given that now, at every step taken by every drunk, the density map is updated. The initial (inefficient attempt) is commented out under the method draw_density().
 
-## Licence
+## License
 
-This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions. Full details of the licence can be found at [LICENSE](https://www.gnu.org/licenses/lgpl-3.0.md)
+This projects is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 or any later versions (LICENSE). Full details of the license can be found at [LICENSE](https://www.gnu.org/licenses/lgpl-3.0.md)
 
 ## Additional notes
 
