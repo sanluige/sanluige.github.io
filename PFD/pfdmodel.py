@@ -5,14 +5,20 @@ Created on Fri Mar 11 09:00:39 2022
 
 @author: luisgerardosanchezsoto
 
-This is the main script to be run to start the Planning for Drunks model, as the second assignment for the
-module GEOG5990M Programming for Geographical Information Analysis: Core Skills.
+This is the main script to be run to start the Planning for Drunks model, as 
+the second assignment for the module GEOG5990M Programming for Geographical 
+Information Analysis: Core Skills.
 
-The program models the behaviour of 25 drunks heading home from the pub after drinking, with varied levels of drunkness.
-    - The program reads a file to create the town of map, including the pub and 25 houses
-    - The drunks are created and assigned a house number and a drunk level between 1 and 4 (1: least drunk, 4: very drunk)
-    - One by one, the drunks head home, with the randomness of their steps dependent to their drunk level
-    - At each step, the drunk evaluates their position to determine their status (At bar, Walking, or At home) and stops when reaching home
+The program models the behaviour of 25 drunks heading home from the pub after 
+drinking, with varied levels of drunkness.
+    - The program reads a file to create the town of map, including the pub 
+        and 25 houses
+    - The drunks are created and assigned a house number and a drunk level 
+        between 1 and 4 (1: least drunk, 4: very drunk)
+    - One by one, the drunks head home, with the randomness of their steps 
+        dependent to their drunk level
+    - At each step, the drunk evaluates their position to determine their 
+        status (At bar, Walking, or At home) and stops when reaching home
     - All drunks start their journey home from a point within the pub
 
 The program uses a TKinter GUI to display the results of the simulation:
@@ -22,19 +28,20 @@ The program uses a TKinter GUI to display the results of the simulation:
 
 """
 
+# imports
 import csv
 import drunksframework
 import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot
-#import matplotlib.animation
-import numpy as np
+#import matplotlib.animation # Did not implement animation in final script
+import numpy as np # used for transposing coordinates to plot
 import tkinter
 import sys   
 
 """
 ·····································································
-··························· MODEL METHODS ···························
+······················ MODEL METHODS/FUNCTIONS ······················
 ·····································································
 """
 
@@ -62,7 +69,7 @@ def run():
             drunks[i].evalposition()
             n = i+1
         print("Drunk " + str(n) + " arrived home.")
-        y, x = np.array(drunks[i].steps).T
+        y, x = np.array(drunks[i].steps).T # transpose coordinate pairs to plot
         matplotlib.pyplot.scatter(x, y)
         matplotlib.pyplot.show()
     
@@ -71,7 +78,7 @@ def run():
 # draw step density map    
 def draw_density():
     
-    print("Draw step density process started")
+    print("Draw step density process started") # print to monitor that process started
     
     # create density map as list of lists
     global dmap
@@ -93,7 +100,7 @@ def draw_density():
                 if [i, j] in allsteps[d]:
                     dmap[i][j] +=1
     
-    print("Draw step density process completed")
+    print("Draw step density process completed") # print to monitor that process ended
     
     # show density map in model window figure
     fig.clear()
@@ -125,8 +132,8 @@ def quit_model():
 """
 
 # read in.txt and create town as list of lists
-town = []
-dmap = []    
+town = [] # list (of lists) to store town data
+dmap = [] # list for drawing density map; used later 
 f = open('town.txt', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 for row in reader: 
@@ -173,6 +180,7 @@ root.wm_title("Model")
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
 canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
+# set up window menu
 menu_bar = tkinter.Menu(root)
 root.config(menu=menu_bar)
 model_menu = tkinter.Menu(menu_bar)
@@ -183,3 +191,58 @@ model_menu.add_command(label="Draw step density map and export CSV file", comman
 model_menu.add_command(label="Quit model", command=quit_model)
 
 tkinter.mainloop()
+
+"""
+·····································································
+···················· UNSUCCESFUL IMPLEMENTATIONS ····················
+·····································································
+
+# ANIMATION SETUP
+#update agent actions by frame_number
+carry_on = True	
+def update(frame_number):
+    
+    n = 0
+    fig.clear()
+    global carry_on
+    global num_of_grazers
+    global num_of_predators
+    print("Iteration " + str(frame_number))
+    
+    matplotlib.pyplot.ylim(ylenght, 0)
+    matplotlib.pyplot.xlim(0, xlenght)
+    matplotlib.pyplot.imshow(town)
+    
+    #each step and evaluate if position is in home (search list of tuples)
+    for i in range(len(drunks)):
+        while drunks[i].status != 2:
+            drunks[i].move()
+            drunks[i].evalposition()
+            y, x = drunks[i].gety(), drunks[i].getx()
+            matplotlib.pyplot.scatter(x, y)
+            n = i+1
+        print("Drunk " + str(n) + " arrived home.")
+
+    #Stopping condition: All drunks made it home
+    s = 0
+    
+    for i in range(len(drunks)):
+       s = s + drunks[i].status
+       
+    if s >= 50:
+        carry_on = False
+        print("Stopping condition: All drunks made it home")
+
+#Stopping process logic
+def gen_function(b = [0]):
+    a = 0
+    global carry_on # not actually needed as we're not assigning, but clearer
+    while (carry_on) :
+        yield a	# Returns control and waits next call.
+        a = a + 1
+
+#Run method to be called by animation
+def run_animated():
+    animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
+    canvas.draw()
+"""
