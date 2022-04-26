@@ -46,16 +46,15 @@ Additionally, it requires two files:
 
 Please download the files into the same local directory to run.
 
+**Please also refer the [README](https://sanluige.github.io/ABM/README) and [LICENSE](https://sanluige.github.io/ABM/LICENCE) files, which include the information in this page.**
+
 ## Navigating the model menu
 
 The menu allows the user to:
 
 **Print drunk information**: Prints the information of drunks (position, housenumber, status and drunk level) in the console.
-
 **Run simulation**: Runs the program and displays the town map with the 25 routes on the GUI window and figure window (for closer inspection).
-
 **Draw step density map and export CSV file**: creates density map, displays map on the GUI and figure window, and overwrites file step_dmap.csv with the data from that simulation.
-
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://sanluige.github.io/PFD/PFDMenu.png)
@@ -99,7 +98,7 @@ def move_ycoordinate(self, y):
     return y
 
 ```
-After testing, 1 to 4 allow for diversity in randomness of movement, but not too much that would allow the drunk to wander off the general direction to their house.
+- After testing, 1 to 4 allow for diversity in randomness of movement, but not too much that would allow the drunk to wander off the general direction to their house.
 
 - Additionally, I developed a slightly inefficient way of drawing the density map. As drunks move, their steps are saved as coordinate pairs in a list. When drawing the map, a 300x300 list of lists if filled with zeros and then for each point in the map, the drunks' step lists are searched to find that point and add 1 to that point for each appearance. This works well enough, although it can take about 10-15 seconds to process. A clear enhancement for a next iteration of this iteration of the model is to embed the density map drawing process in the simulation of the drunk's journey itself. That wouldn't require searching the drunks' step list 90,000 times (map size 300x300).
 
