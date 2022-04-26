@@ -14,7 +14,4 @@ title: Programming for Geographical Information Analysis: Core Skills
 
 This web site contains the materials developed for Assignments 1 and 2 of the module. Please click on the following links to go to the page for each assignment:
 - Assignment 1: [Agent Based Model](https://sanluige.github.io/ABM/) (Portfolio of practical work).
-- Assignment 2: [Planning for Drunks](https://sanluige.github.io/PFD), which is the definition of the Agent class and subclasses Grazer and Predator.
-
-
-
+- Assignment 2: [Planning for Drunks](https://sanluige.github.io/PFD).
