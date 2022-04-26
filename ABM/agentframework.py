@@ -5,9 +5,9 @@ Created on Tue Mar 8 12:19:58 2022
 
 @author: luisgerardosanchezsoto
 
-This script defines the Agent class and subclasses Grazer and Predator used 
-in the Agent Based Model (pfdmodel.py) and their functionality. 
-Shared functionality of subclasses is defined in Agent Class.
+This script defines the Agent class and subclasses Grazer and Predator used in 
+the Agent Based Model (pfdmodel.py) and their functionality. Shared 
+functionality of subclasses is defined in Agent Class.
 
 """
 import random
@@ -160,7 +160,7 @@ class Agent():
         """
         return (((self._x - otheragent.x)**2) + ((self._y - otheragent.y)**2))**0.5
     
-# definition of subclass "Grazer". Inherits from Agent
+# definition of subclass "Grazer". Inherits from Agent.
 class Grazer(Agent):
     def eat(self): # can you make it eat what is left?
         """
@@ -198,7 +198,7 @@ class Grazer(Agent):
         80.0
         >>> a.move()
         >>> a.eat(); a.eat(); a.eat(); a.eat(); a.eat(); a.eat(); a.eat(); a.eat()
-        >>> float(a.store)
+        >>> float(a.store) 
         80.0
         
         """
@@ -313,7 +313,7 @@ class Grazer(Agent):
                     otheragent.store = average
                     print("sharing " + str(distance) + " " + str(average))
 
-# definition of subclass "Predator". Inherits from "Agent"
+# definition of subclass "Predator". Inherits from "Agent".
 class Predator(Agent): 
     
     def __str__(self):
