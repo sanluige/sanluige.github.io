@@ -46,8 +46,11 @@ Please download the files into the same local directory to run.
 The menu allows the user to:
 
 **Print drunk information**: Prints the information of drunks (position, housenumber, status and drunk level) in the console.
+
 **Run simulation**: Runs the program and displays the town map with the 25 routes on the GUI window and figure window (for closer inspection). This also creates the density map without displaying it on program window.
+
 **Draw step density map and export CSV file**: displays density map on the GUI and figure window, and overwrites file step_dmap.csv with the data from that simulation.
+
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://sanluige.github.io/PFD/PFDMenu.png)
