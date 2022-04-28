@@ -62,8 +62,11 @@ Please download the files into the same local directory to run.
 The menu allows the user to:
 
 **Run model**: Run the model with default parameters.
+
 **Print agent information**: Prints the information of agents - grazers and predators - in the console.
+
 **Print environment file**: Updates the environment state in an existing CSV file (provided above).
+
 **Quit model**: Quits the execution of the model and closes model window.
 
 ![This is an image](https://sanluige.github.io/ABM/Model_menu.png)
