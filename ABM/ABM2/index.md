@@ -45,16 +45,16 @@ When entered correctly, a GUI window will appear with several options in the Mod
 - Maximum grazing is achieved.
 
 The program requires to scripts to run:
-- [agentbasedmodel.py](https://sanluige.github.io/ABM/agentbasedmodel.py), which is the main script from which the program is executed, and;
-- [agentframework.py](https://sanluige.github.io/ABM/agentframework.py), which is the definition of the Agent class and subclasses Grazer and Predator.
+- [agentbasedmodel.py](https://sanluige.github.io/ABM/ABM2/agentbasedmodel.py), which is the main script from which the program is executed, and;
+- [agentframework.py](https://sanluige.github.io/ABM/ABM2/agentframework.py), which is the definition of the Agent class and subclasses Grazer and Predator.
 
 Additionally, it requires two files:
-- [in.txt](https://sanluige.github.io/ABM/in.txt), which contains the environment information.
-- [environmentout.csv](https://sanluige.github.io/ABM/environmentout.csv), which is the file used to write the environment data out of the model when requested by the user.
+- [in.txt](https://sanluige.github.io/ABM/ABM2/in.txt), which contains the environment information.
+- [environmentout.csv](https://sanluige.github.io/ABM/ABM2/environmentout.csv), which is the file used to write the environment data out of the model when requested by the user.
 
 Please download the files into the same local directory to run.
 
-**Please also refer the [README](https://sanluige.github.io/ABM/README) and [LICENSE](https://sanluige.github.io/ABM/LICENCE) files, which include the information in this page.**
+**Please also refer the [README](https://sanluige.github.io/ABM/ABM2/README) and [LICENSE](https://sanluige.github.io/ABM/ABM2/LICENCE) files, which include the information in this page.**
 
 ## Navigating the model menu
 
@@ -68,7 +68,7 @@ The menu allows the user to:
 
 **Quit model**: Quits the execution of the model and closes model window.
 
-![This is an image](https://sanluige.github.io/ABM/Model_menu.png)
+![This is an image](https://sanluige.github.io/ABM/ABM2/Model_menu.png)
 
 ## Code testing
 
