@@ -1,4 +1,8 @@
 
+---
+title: Assignment 1: Basic Agent Based Model
+---
+
 # **Assignment 2:** Planning for Drunks Model
 
 **Module:** GEOG5990M Programming for Geographical Information Analysis: Core Skills

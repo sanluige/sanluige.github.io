@@ -1,3 +1,6 @@
+---
+title: Assignment 1: Basic Agent Based Model
+---
 
 # **Assignment 1:** Basic Agent Based Model
 
