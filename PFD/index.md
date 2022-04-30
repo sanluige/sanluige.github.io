@@ -1,6 +1,6 @@
 
 ---
-title: Assignment 1: Basic Agent Based Model
+title: Assignment 2: Planning for Drunks
 ---
 
 # **Assignment 2:** Planning for Drunks Model
