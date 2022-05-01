@@ -111,13 +111,16 @@ def draw_density():
 #
 #    print("Draw step density process completed") # print to monitor that process ended
     
-    # show density map in model window figure
-    fig.clear()
-    matplotlib.pyplot.imshow(dmap)
-    matplotlib.pyplot.ylim(ylenght, 0)
-    matplotlib.pyplot.xlim(0, xlenght)
-
-    canvas.draw()
+    # show density map in model window figure (if dmap has been built)
+    if len(dmap) == xlenght:
+        fig.clear()
+        matplotlib.pyplot.imshow(dmap)
+        matplotlib.pyplot.ylim(ylenght, 0)
+        matplotlib.pyplot.xlim(0, xlenght)
+    
+        canvas.draw()
+    else:
+        print("density map has not been created, please run simulation.")
     
     # write step density map in existig csv file  
     f2 = open('step_dmap.csv', 'w', newline='')
@@ -208,7 +211,7 @@ tkinter.mainloop()
 
 # ANIMATION SETUP
 #update agent actions by frame_number
-carry_on = True	
+carry_on = True 
 def update(frame_number):
     
     n = 0
@@ -247,7 +250,7 @@ def gen_function(b = [0]):
     a = 0
     global carry_on # not actually needed as we're not assigning, but clearer
     while (carry_on) :
-        yield a	# Returns control and waits next call.
+        yield a # Returns control and waits next call.
         a = a + 1
 
 #Run method to be called by animation
