@@ -112,7 +112,7 @@ def draw_density():
 #    print("Draw step density process completed") # print to monitor that process ended
     
     # show density map in model window figure (if dmap has been built)
-    if len(dmap) == xlenght:
+    if len(dmap) >= xlenght:
         fig.clear()
         matplotlib.pyplot.imshow(dmap)
         matplotlib.pyplot.ylim(ylenght, 0)
