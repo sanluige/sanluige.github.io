@@ -1,8 +1,4 @@
 
----
-title: Assignment 2: Planning for Drunks
----
-
 # **Assignment 2:** Planning for Drunks Model
 
 **Module:** GEOG5990M Programming for Geographical Information Analysis: Core Skills
