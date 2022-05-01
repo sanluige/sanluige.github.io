@@ -20,7 +20,7 @@ The program models the behaviour of 25 drunks heading home from the pub after dr
 - The program reads an external file to create the town of map, including the pub and 25 houses
 - The drunks are created and assigned a house number and a drunk level between 1 and 4 (1: least drunk, 4: very drunk)
 - One by one, the drunks head home, with the randomness of their steps dependent to their drunk level
-- At each step, the drunk evaluates their position to determine their status (At bar, Walking, or At home) and stops when reaching home
+- At each step, the drunk evaluates their position to determine their status (0: At bar, 1: Walking, or 2: At home) and stops when reaching home
 - All drunks start their journey home from a point within the pub and end their journey when reaching their respective house.
 - Their drunk level impacts their sense of direction. That is: Drunks with lower drunk levels will show less randomness in the direction of their steps, and higher levels will increase the possibility of stepping away from the direction of their house.
 
