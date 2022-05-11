@@ -80,8 +80,11 @@ def run():
         print("Drunk " + str(n) + " arrived home.")
         y, x = np.array(drunks[i].steps).T # transpose coordinate pairs to plot
         matplotlib.pyplot.scatter(x, y)
-        matplotlib.pyplot.show()
-    
+        #matplotlib.pyplot.show() 
+            #This line (83 - matplotlib.pyplot.show()) caused an error that breaks 
+            #execution when running tests in Windows. It is commented out as it 
+            #is not necessary to run in MAC either way.
+        
     canvas.draw()
 
 # draw step density map    
